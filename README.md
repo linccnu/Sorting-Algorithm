@@ -1,2 +1,2 @@
 # Sorting-Algorithm
-Given Eight Sorting Methods and Showing the time needed to sort 10000 random numbers
+给出了常用的八大排序算法代码，并通过测试用例进行了排序验证和各种排序算法所需要的时间。
