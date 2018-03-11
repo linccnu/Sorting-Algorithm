@@ -2,50 +2,51 @@
 //
 
 #include "stdafx.h"
-#include "Sorting_Head.h"
+#include "SortMethods.h"
 #include "InOutPut.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
+/* 计算当前系统时间 */
+long GetMilliSecond()
 {
+	struct timeval stTime;
+	return gettimeofday(&stTime, NULL) / 1000;
+}
+
+int main(int argc, _TCHAR* argv[])
+{
+	long lStart 	= 0;
+	long lTimeUsed	= 0;
 	int arr[N]={0};
 	//cout<<"The input Numbers are-----------------------"<<endl;
 	//OutputNumber(arr,N);
 	cout<<"*******************************Begin Sorting!**********************"<<endl;
 
 	InputNumber(arr,N);
-	cout<<"<1>BubbleSort begins."<<endl;
-	double TimeOfBubbleSort;
-	BubbleSort_Test(arr,TimeOfBubbleSort);
-	cout<<"Total Sorted-time spending is "<<TimeOfBubbleSort<<"ms"<<endl;
-
-			//FileOutPut(arr,Bubblefile);
-			//ofstream fout;
-			//fout.open(Bubblefile);
-			//for(int ii=0;ii<N;++ii)
-			//	fout<<arr[ii]<<'\t';
-			//fout.close();
-	
-	InputNumber(arr,N);
-	cout<<endl<<"<2>SelectionSort begins."<<endl;
-	double TimeOfSelectionSort;
-	SelectionSort_Test(arr,TimeOfSelectionSort);
-	cout<<"Total Sorted-time spending is "<<TimeOfSelectionSort<<"ms"<<endl;
-	//void FileOutPut(int *arr,const char *SelectionSortFile);
+	printf("<1>BubbleSort begins.\n");
+	lStart = GetMilliSecond();
+	BubbleSort(arr);	
+	lTimeUsed = GetMilliSecond() - lStart;
+	printf("Bubble Sorted-time spending is %ld\n", lTimeUsed);
 
 	InputNumber(arr,N);
-	cout<<endl<<"<3>InsertSort begins."<<endl;
-	double TimeOfInsertSort;
-	InsertSort_Test(arr,TimeOfInsertSort);
-	cout<<"Total Sorted-time spending is "<<TimeOfInsertSort<<"ms"<<endl;
+	printf("<2>SelectionSort begins.\n");
+	lStart = GetMilliSecond();
+	SelectionSort(arr);	
+	lTimeUsed = GetMilliSecond() - lStart;
+	printf("Selection Sorted-time spending is %ld\n", lTimeUsed);
 
 	InputNumber(arr,N);
-	/*cout<<"The input Numbers are-----------------------"<<endl;
-	OutputNumber(arr,N);*/
+	printf("<3>InsertSort begins.\n");
+	lStart = GetMilliSecond();
+	InsertSort(arr);
+	lTimeUsed = GetMilliSecond() - lStart;
+	printf("Insert Sorted-time spending is %ld\n", lTimeUsed);
+
+	InputNumber(arr,N);
 	cout<<endl<<"<4>ShellSort begins."<<endl;
-	double TimeOfShellSort;
-	ShellSort_Test(arr,TimeOfShellSort);
-	cout<<"Total Sorted-time spending is "<<TimeOfShellSort<<"ms"<<endl;
+	lStart = GetMilliSecond();
+	ShellSort(arr);
+	printf("Shell Sorted-time spending is %ld\n", lTimeUsed);
 
 	InputNumber(arr,N);
 	cout<<endl<<"<5>MergeSort begins."<<endl;

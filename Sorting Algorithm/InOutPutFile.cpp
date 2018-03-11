@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Sorting_Head.h"
+#include "SortMethods.h"
 #include "InOutPut.h"
 
 void InputNumber(int *arr,int N)

@@ -1,5 +1,5 @@
 //**************************************************************************
-#include "Sorting_Head.h"
+#include "SortMethods.h"
 #include "InOutPut.h"
 #include <ctime>
 #include <exception>
